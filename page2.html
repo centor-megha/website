@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Application - Page 2</title>
+</head>
+<body>
+    <h1>Loan Application - Step 2</h1>
+    <form id="form2">
+        <label for="income">Annual Income:</label>
+        <input type="number" id="income" name="income" required><br><br>
+        
+        <label for="employment_status">Employment Status:</label>
+        <select id="employment_status" name="employment_status" required>
+            <option value="employed">Employed</option>
+            <option value="self_employed">Self-Employed</option>
+            <option value="unemployed">Unemployed</option>
+            <option value="student">Student</option>
+        </select><br><br>
+        
+        <input type="button" value="Next" onclick="goToPage3()">
+    </form>
+
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function goToPage3() {
+            const name = getQueryParam('name');
+            const email = getQueryParam('email');
+            const income = document.getElementById('income').value;
+            const employmentStatus = document.getElementById('employment_status').value;
+            window.location.href = `page3.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&income=${encodeURIComponent(income)}&employment_status=${encodeURIComponent(employmentStatus)}`;
+        }
+    </script>
+</body>
+</html>

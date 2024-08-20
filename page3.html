@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Application - Page 3</title>
+</head>
+<body>
+    <h1>Loan Application - Step 3</h1>
+    <form id="form3">
+        <label for="loan_amount">Desired Loan Amount:</label>
+        <input type="number" id="loan_amount" name="loan_amount" required><br><br>
+        
+        <label for="repayment_period">Repayment Period (in months):</label>
+        <input type="number" id="repayment_period" name="repayment_period" required><br><br>
+        
+        <input type="submit" value="Submit" onclick="submitForm()">
+    </form>
+
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function submitForm() {
+            const name = getQueryParam('name');
+            const email = getQueryParam('email');
+            const income = getQueryParam('income');
+            const employmentStatus = getQueryParam('employment_status');
+            const loanAmount = document.getElementById('loan_amount').value;
+            const repaymentPeriod = document.getElementById('repayment_period').value;
+
+            console.log({
+                name,
+                email,
+                income,
+                employmentStatus,
+                loanAmount,
+                repaymentPeriod
+            });
+
+            alert('Form submitted successfully!');
+        }
+    </script>
+</body>
+</html>
